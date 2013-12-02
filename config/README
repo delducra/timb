@@ -1,0 +1,4 @@
+Quick-start config files for various web servers
+
+time-nginx : 
+nginx cofig. Create a symlink to this file from your sites-enabled directory (/etc/nginx/sites-enabled on Ubunto and debian based systems)
