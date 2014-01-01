@@ -1,0 +1,222 @@
+body {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	border: 1px solid black;
+}
+div.timb-help-window {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	z-index: 1001;
+	background: yellow;
+	width: 400px;
+	margin: 0;
+	vertical-align: middle;
+	text-align: justify;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px #AAAAAA;
+	padding: 5px;
+}
+div.timb-config {
+	width: 450px;
+	border: 1px solid black;
+	background: #aaa;
+	padding: 15px;
+}
+div.timb-config-err {
+	color: red;
+	font-weight: bold;
+	font-size: 125%;
+}
+input[type=submit].timb-config {
+	float: right;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+table.timb-form-table {
+	width: 100%;
+}
+
+td.timb-tbl-hspace {
+	height: 10px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+tr.timb-tbl-tre {
+	background: white;
+}
+tr.timb-tbl-tro {
+	background: yellow;
+}
+th.timb-tbl-head {
+	background: #AFAFAF;
+	margin-bottom: 4px;
+}
+div.timb-title {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	background: #F0F0F0;
+}
+div.timb-subtitle {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	background: #F0F0F0;
+}
+img.timb-help-button {
+	float: right;
+	width: 15px;
+	height: 15px;
+	border: 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+		
+}
+img.timb-alert-button {
+	float: right;
+	width: 15px;
+	height: 15px;
+	border: 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+div.timb-stats {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+div.timb-action-bar {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+table.timb-action-bar {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+input[type=submit].timb-action-button {
+	display: block;
+	vertical-align: middle;
+}
+
+input[type=submit].timb-action-button-left {
+	display: block;
+	vertical-align: middle;
+	float: left;
+}
+input[type=submit].timb-action-button-right {
+	display: block;
+	vertical-align: middle;
+	float: right;
+}
+
+div.timb-reg-form {
+	position: relative;
+	display: inline-block;
+}
+table.timb-form-table {
+	display: block;
+	width: 480px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	float: left;
+	border: 1px solid black;
+}
+td.timb-reg-label {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: right;
+	width: 25%;
+}
+td.timb-reg-input {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+	width: 25%;
+}
+div.timb-reg-upload, div.timb-bike-comp-in {
+	border: 1px solid black;
+	display: block;
+	width: 480px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	float: left;
+}
+div.timb-reg-submit {
+    width: 100%;
+    clear: left;
+    text-align: center;
+}
+
+div.timb-interstitial-blur {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	z-index: 998;
+	background-color: rgba(200, 200, 200, 0.8);
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+}
+
+div.timb-interstitial {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	z-index: 999;
+	background: yellow;
+	width: 850px;
+	margin-top: 25px;
+	margin-left: 75px;
+	margin-right: 75px;
+	vertical-align: middle;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px #AAAAAA;
+}
+
+div.timb-inter-button {
+	display: table-cell;
+	float: right;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid black;
+	background: #AFAFAF;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	color: black;
+}
+
+div.timb-inter-button:hover {
+	color: red;
+}
