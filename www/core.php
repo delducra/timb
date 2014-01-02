@@ -116,6 +116,25 @@ function get_overall_stats() {
 	
 }
 
+function get_maker_list() {
+	global $db_connection;
+	$makers = array();
+	
+	if ( ! ( isset( $db_connection ) ) ) {
+		get_db_connection();
+	}
+	if ( ! ( isset( $db_connection ) ) ) {
+		// TODO: Error handling
+		return;
+	}	
+	
+	$result = $db_connection->query( 'SELECT name FROM makers ORDER BY name', MYSQLI_USE_RESULT );
+	while ( $row = $result->fetch_assoc() ) {
+		array_push( $makers, $row['name'] );
+	}
+	return( $makers );
+}
+
 // This is just for debug/dev
 function html_var_dump( $var ) {
 

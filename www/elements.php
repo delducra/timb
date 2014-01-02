@@ -184,31 +184,15 @@ function render_html_landing_page() {
 function render_html_registration_form() {
 	render_html_titles();
 	render_html_action_bar();
+	$makers = get_maker_list();
 	?>
 	<DIV class="timb-help-window" id="timb-help-window">
 		<DIV class="timb-help-dialog" id="timb-help-dialog"></DIV>
 	</DIV>
 	<DIV class="timb-reg-form">
-		<SCRIPT>
-			$(document).ready(function(){
-				$("#timb-help-window").click(function() {
-					$("#timb-help-window").hide(500);
-				});
-			});
-			$(document).ready(function(){
-				$("#timb-help-dialog").click(function() {
-					$("#timb-help-window").hide(500);
-				});
-			});
-			function showTimbHelp( e, topic ) {
-				$("#timb-help-window").offset({left:e.pageX,top:e.pageY});
-				if ( topic == 'alert_email' ) {
-					$("#timb-help-dialog").html('<p>An email address is NOT required to register your bike, but may aid in recovery.</p><p>Your email address will be stored in the database, but will never be publically displayed to other users. It will be used to allow others to send you emails using this system - perhaps someone that has found your bicycle and wishes to return it.</p><p>See the <a href="./index.php?action=privacy_policy">Privacy Policy</a> for additional details</p>');
-					$("#timb-help-window").show();
-				}
-			}
-		</SCRIPT>
-		<DIV class="timb-subtitle">Register a bike</DIV>
+		<SCRIPT src="./elements/registration.js" type="text/javascript"></SCRIPT>
+		<SCRIPT src="./elements/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></SCRIPT>
+		<LINK href="./elements/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
 		<FORM name="registration" method="post" action="." class="timb-reg-form">
 			<INPUT type="hidden" name="registration-step" value="submission">
 				<TABLE class="timb-form-table">
@@ -233,7 +217,7 @@ function render_html_registration_form() {
 					<TR class='timb-tbl-tro'>
 						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_phonenumber'>Phone Number:</LABEL></TD>
 						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=32 id='owner_phonenumber' name='owner_phonenumber' value='<?php echo $_POST['owner_phonenumber']; ?>'>
-							<IMG class="timb-alert-button" id="timb_altemail" width=15 height=15 src="./elements/notice_button.png" onclick="showTimbHelp(event, 'alert_email')" />
+							<IMG class="timb-alert-button" id="timb_altphone" width=15 height=15 src="./elements/notice_button.png" onclick="showTimbHelp(event, 'alert_phone')" />
 							<IMG class="timb-help-button" id="timb_hlpphone" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'owner-phonenumber')" />
 						</TD>
 					</TR>
@@ -310,20 +294,29 @@ function render_html_registration_form() {
 					</TR>
 					
 					</TABLE>
+					<SCRIPT>
+						$(function() {
+							var set_makers = [
+							<?php
+								echo "''"; 
+								foreach ( get_maker_list() as $builder ) {
+									echo ", '$builder'";
+								}
+							?>
+		  					];
+		  					$("#bike_make").autocomplete({
+								source: set_makers
+		  					});	
+			  				
+						});
+					</SCRIPT>
+								
 				<DIV class="timb-reg-upload">Photos</DIV>
 				<DIV class=timb-bike-comp-in>Components</DIV>	
 				<DIV class="timb-reg-submit"><INPUT type="submit" class="timb-reg-submit" value="Submit" /></DIV>			
 		</FORM>
 		<?php if ( ! get_config_key('suppress-reg-notice') || $_POST['hide-legal-notice'] ) { ?>
 		<!-- Legal Interstitial -->
-		<script>
-			$(document).ready(function(){
-				$("#timb-hide-button").click(function() {
-					$("#timb-legal-cover").hide();
-					$("#timb-legal-dialog").hide(500);
-				});
-			});
-		</script>
 		<DIV class="timb-interstitial-blur" id='timb-legal-cover'></DIV>
 		<DIV class="timb-interstitial" id='timb-legal-dialog'>
 			<DIV class="timb-legal-notice">
