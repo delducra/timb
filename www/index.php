@@ -26,12 +26,7 @@ function direct_via_post_data() {
 			'description'	=> '',
 		);
 		render_html_header( $header_elements );
-		html_var_dump( $_POST );
-		if ( $_POST['registration-step'] == 'submission' ) {
-			// TODO:
-		} else {
-			render_html_registration_form();
-		}
+		render_html_registration_form();
 		render_html_footer();
 	}
 }

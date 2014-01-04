@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set("UTC");
+
 function write_ini_file($assoc_arr, $path, $has_sections=FALSE) {
 	$content = "";
 	if ($has_sections) {

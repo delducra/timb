@@ -4,12 +4,14 @@ body {
 	margin-right: auto;
 	margin-top: 10px;
 	border: 1px solid black;
+	height: 100%;
 }
+
 div.timb-help-window {
 	position: absolute;
 	top: 0;
 	left: 0;
-	display: block;
+	display: none;
 	z-index: 1001;
 	background: yellow;
 	width: 400px;
@@ -186,6 +188,18 @@ div.timb-interstitial-blur {
 	margin: 0px;
 }
 
+div.timb-inprogress-blur {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 998;
+	background-color: rgba(200, 200, 200, 0.8);
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+}
+
 div.timb-interstitial {
 	position: absolute;
 	top: 0;
@@ -201,6 +215,25 @@ div.timb-interstitial {
 	border: 1px solid black;
 	border-radius: 5px;
 	box-shadow: 10px 10px 5px #AAAAAA;
+}
+
+div.timb-inprogress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	z-index: 999;
+	background: yellow;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px #AAAAAA;
+	padding-left: 25px;
+	padding-right: 25px;
 }
 
 div.timb-inter-button {
@@ -219,4 +252,20 @@ div.timb-inter-button {
 
 div.timb-inter-button:hover {
 	color: red;
+}
+
+ul.timb-reg-validation-result {
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+	display: table;
+}
+
+div.timb-reg-validation-error h2 {
+	font-weight: bold;
+	font-size: 125%;
+	display: inline-block;
+	padding-left: 5px;
+	vertical-align: middle;
 }

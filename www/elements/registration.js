@@ -7,11 +7,22 @@ $(document).ready(function(){
 	$("#timb-help-dialog").click(function() {
 		$("#timb-help-window").hide(500);
 	});
+
+	$("#timb-regvalidate-window").click(function() {
+		$("#timb-regvalidate-window").hide(0);
+		$("#timb-regvalidate-dialog").hide(500);
+	});
+	$("#timb-regvalidate-dialog").click(function() {
+		$("#timb-regvalidate-window").hide(0);
+		$("#timb-regvalidate-dialog").hide(500);
+	});
+	
 	// Legal warning support
 	$("#timb-hide-button").click(function() {
 		$("#timb-legal-cover").hide();
 		$("#timb-legal-dialog").hide(500);
 	});
+    $( "#bike_date" ).datepicker();
 
 });
 
@@ -24,4 +35,52 @@ function showTimbHelp( e, topic ) {
 		$("#timb-help-dialog").html('<p>A phone number is NOT required to register your bike, but may aid in recovery.</p><p>Be very careful if you decide to list you phone number as it will become <b>publicaly available</b> to others browsing this registry.</p><p>See the <a href="./index.php?action=privacy_policy">Privacy Policy</a> for additional details</p>');
 		$("#timb-help-window").show();
 	}
+}
+
+function validate_and_submit() {
+	var windowH = $(window).height();
+	var windowW = $(window).width();
+
+	// Niceties
+	$("#timb-regvalidate-dialog").html('<p>Validating...');
+	$("#timb-regvalidate-window").css({ height: $(window).height() + 1000 } );
+
+	$("#timb-regvalidate-dialog").css({
+	 position:"fixed",
+	 left: ((windowW - $("#timb-regvalidate-dialog").outerWidth())/2),
+	 top: ((windowH - $("#timb-regvalidate-dialog").outerHeight())/2)
+	});
+	$("#timb-regvalidate-window").show();
+	$("#timb-regvalidate-dialog").show();
+	
+	// Submit the request
+	data = $("#timb-reg-form").serialize();
+	$.ajax({
+	    type: "POST",
+	    url: "./reg_backend.php",
+	    data: data,
+	    dataType: 'json',
+	    async: false,
+        cache: false,
+        timeout: 1000,
+        
+	    success: function( returned ){
+	    	if ( ! returned.success ) {
+	    		
+	    		$("#timb-regvalidate-dialog").html( returned.error_string );
+	    		// Reset values
+	    		var fields = [ "owner_firstname", "owner_lastname", "owner_email", "owner_phonenumber", "owner_addr1", "owner_addr2", "owner_addr3", "owner_addr4", "bike_make", "bike_model", "bike_year", "bike_serial", "bike_color", "bike_size", "bike_from", "bike_date", ];
+	    		for (var i = 0; i < fields.length; ++i) {
+	    			$("#" + fields[i]).val( returned.form_data[fields[i]] );
+	    		}
+	    		$("#timb-regvalidate-dialog").onclick=function(){ 
+	    			$("#timb-regvalidate-window").hide();
+	    			$("#timb-regvalidate-dialog").hide();
+	    		};
+	    	};
+	    },
+	    failure: function( returned ){
+	    	// TODO
+	    }
+	});
 }

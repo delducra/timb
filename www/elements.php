@@ -189,12 +189,15 @@ function render_html_registration_form() {
 	<DIV class="timb-help-window" id="timb-help-window">
 		<DIV class="timb-help-dialog" id="timb-help-dialog"></DIV>
 	</DIV>
+	<DIV class="timb-inprogress-blur" id='timb-regvalidate-window'></DIV>
+	<DIV class="timb-inprogress" id='timb-regvalidate-dialog'></DIV>
+	
 	<DIV class="timb-reg-form">
 		<SCRIPT src="./elements/registration.js" type="text/javascript"></SCRIPT>
 		<SCRIPT src="./elements/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></SCRIPT>
 		<LINK href="./elements/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
-		<FORM name="registration" method="post" action="." class="timb-reg-form">
-			<INPUT type="hidden" name="registration-step" value="submission">
+		<FORM name="registration" method="post" action="." class="timb-reg-form" id="timb-reg-form">
+			<INPUT type="hidden" name="registration-step" value="validation">
 				<TABLE class="timb-form-table">
 					<TR class="timb-tbl-head">
 						<TH colspan=2 class="timb-tbl-head">Personal Information</TH>
@@ -313,7 +316,7 @@ function render_html_registration_form() {
 								
 				<DIV class="timb-reg-upload">Photos</DIV>
 				<DIV class=timb-bike-comp-in>Components</DIV>	
-				<DIV class="timb-reg-submit"><INPUT type="submit" class="timb-reg-submit" value="Submit" /></DIV>			
+				<DIV class="timb-reg-submit"><DIV class="timb-inter-button" id="timb-submit-reg" onClick="validate_and_submit()">Submit</DIV>			
 		</FORM>
 		<?php if ( ! get_config_key('suppress-reg-notice') || $_POST['hide-legal-notice'] ) { ?>
 		<!-- Legal Interstitial -->
@@ -333,6 +336,7 @@ function render_html_registration_form() {
 		<?php } ?>
 		
 	</DIV>
+	
 	<?php 
 }
 
