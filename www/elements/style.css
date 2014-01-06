@@ -199,7 +199,9 @@ div.timb-inprogress-blur {
 	height: 100%;
 	margin: 0px;
 }
-
+#timb-regvalidate-dialog {
+	display: none;
+}
 div.timb-interstitial {
 	position: absolute;
 	top: 0;

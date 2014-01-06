@@ -1,12 +1,7 @@
 <?php 
 
-include "./configs.php";
 include "./elements.php";
 include_once "./core.php";
-
-// Let's see if we've initialized
-config_is_present() || init_config_bootstrap();
-load_config_bootstrap();
 
 direct_via_post_data();
 

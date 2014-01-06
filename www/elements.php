@@ -197,126 +197,125 @@ function render_html_registration_form() {
 		<SCRIPT src="./elements/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></SCRIPT>
 		<LINK href="./elements/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
 		<FORM name="registration" method="post" action="." class="timb-reg-form" id="timb-reg-form">
-			<INPUT type="hidden" name="registration-step" value="validation">
-				<TABLE class="timb-form-table">
-					<TR class="timb-tbl-head">
-						<TH colspan=2 class="timb-tbl-head">Personal Information</TH>
-					</TR>
-					<TR class='timb-tbl-tre'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_firstname'>First Name:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=64 id='owner_firstname' name='owner_firstname' value='<?php echo $_POST['owner_firstname']; ?>'><BR /></TD>
-					</TR>				
-					<TR class='timb-tbl-tro'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_lastname'>Last Name:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=64 id='owner_lastname' name='owner_lastname' value='<?php echo $_POST['owner_lastname']; ?>'><BR /></TD>
-					</TR>
+			<TABLE class="timb-form-table">
+				<TR class="timb-tbl-head">
+					<TH colspan=2 class="timb-tbl-head">Personal Information</TH>
+				</TR>
+				<TR class='timb-tbl-tre'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_firstname'>First Name:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=64 id='owner_firstname' name='owner_firstname' value='<?php echo $_POST['owner_firstname']; ?>'><BR /></TD>
+				</TR>				
+				<TR class='timb-tbl-tro'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_lastname'>Last Name:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=64 id='owner_lastname' name='owner_lastname' value='<?php echo $_POST['owner_lastname']; ?>'><BR /></TD>
+				</TR>
 
-					<TR class='timb-tbl-tre'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_email'>Email Address:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type="email" maxlength=64 id='owner_email' name='owner_email' "value='<?php echo $_POST['owner_email']; ?>'>
-							<IMG class="timb-alert-button" id="timb-altemail" width=15 height=15 src="./elements/notice_button.png" onclick="showTimbHelp(event, 'alert_email')" />
-						</TD>
-					</TR>				
-					<TR class='timb-tbl-tro'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_phonenumber'>Phone Number:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=32 id='owner_phonenumber' name='owner_phonenumber' value='<?php echo $_POST['owner_phonenumber']; ?>'>
-							<IMG class="timb-alert-button" id="timb_altphone" width=15 height=15 src="./elements/notice_button.png" onclick="showTimbHelp(event, 'alert_phone')" />
-							<IMG class="timb-help-button" id="timb_hlpphone" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'owner-phonenumber')" />
-						</TD>
-					</TR>
-					
-					<TR class='timb-tbl-tre'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_addr1'>Address (line 1):</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='owner_addr1' name='owner_addr1' value='<?php echo $_POST['owner_addr1']; ?>'>
-						<IMG class="timb-alert-button" id="timb_altemail" width=15 height=15 src="./elements/notice_button.png" onclick="showTimbHelp(event, 'alert_email')" />
-						<IMG class="timb-help-button" id="timb_hlpaddr" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'user-addr1')" /><BR />
-						</TD>
-					</TR>				
-					<TR class='timb-tbl-tro'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_addr2'>Address (line 2):</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='owner_addr2' name='owner_addr2' value='<?php echo $_POST['owner_addr2']; ?>'><BR /></TD>
-					</TR>
-					
-					<TR class='timb-tbl-tre'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_addr3'>Address (line 3):</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='owner_addr3' name='owner_addr3' value='<?php echo $_POST['owner_addr3']; ?>'><BR /></TD>
-					</TR>				
-					<TR class='timb-tbl-tro'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_addr4'>Address (line 4):</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='owner_addr4' name='owner_addr4' value='<?php echo $_POST['owner_addr4']; ?>'><BR /></TD>
-					</TR>
-					
-					<TR>
-						<TD class="timb-tbl-hspace" colspan=2></TD>
-					</TR>
-					
-					<TR class="timb-tbl-head">
-						<TH colspan=2 class="timb-tbl-head">Bicycle Information</TH>
-					</TR>
+				<TR class='timb-tbl-tre'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_email'>Email Address:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type="email" maxlength=64 id='owner_email' name='owner_email' "value='<?php echo $_POST['owner_email']; ?>'>
+						<IMG class="timb-alert-button" id="timb-altemail" width=15 height=15 src="./elements/notice_button.png" onclick="showTimbHelp(event, 'alert_email')" />
+					</TD>
+				</TR>				
+				<TR class='timb-tbl-tro'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_phonenumber'>Phone Number:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=32 id='owner_phonenumber' name='owner_phonenumber' value='<?php echo $_POST['owner_phonenumber']; ?>'>
+						<IMG class="timb-alert-button" id="timb_altphone" width=15 height=15 src="./elements/notice_button.png" onclick="showTimbHelp(event, 'alert_phone')" />
+						<IMG class="timb-help-button" id="timb_hlpphone" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'owner-phonenumber')" />
+					</TD>
+				</TR>
+				
+				<TR class='timb-tbl-tre'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_addr1'>Address (line 1):</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='owner_addr1' name='owner_addr1' value='<?php echo $_POST['owner_addr1']; ?>'>
+					<IMG class="timb-alert-button" id="timb_altemail" width=15 height=15 src="./elements/notice_button.png" onclick="showTimbHelp(event, 'alert_email')" />
+					<IMG class="timb-help-button" id="timb_hlpaddr" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'user-addr1')" /><BR />
+					</TD>
+				</TR>				
+				<TR class='timb-tbl-tro'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_addr2'>Address (line 2):</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='owner_addr2' name='owner_addr2' value='<?php echo $_POST['owner_addr2']; ?>'><BR /></TD>
+				</TR>
+				
+				<TR class='timb-tbl-tre'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_addr3'>Address (line 3):</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='owner_addr3' name='owner_addr3' value='<?php echo $_POST['owner_addr3']; ?>'><BR /></TD>
+				</TR>				
+				<TR class='timb-tbl-tro'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='owner_addr4'>Address (line 4):</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='owner_addr4' name='owner_addr4' value='<?php echo $_POST['owner_addr4']; ?>'><BR /></TD>
+				</TR>
+				
+				<TR>
+					<TD class="timb-tbl-hspace" colspan=2></TD>
+				</TR>
+				
+				<TR class="timb-tbl-head">
+					<TH colspan=2 class="timb-tbl-head">Bicycle Information</TH>
+				</TR>
 
-					<TR class='timb-tbl-tre'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_make'>Make:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=64 id='bike_make' name='bike_make' value='<?php echo $_POST['bike_make']; ?>'><BR /></TD>
-					</TR>				
-					<TR class='timb-tbl-tro'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_model'>Model:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=64 id='bike_model' name='bike_model' value='<?php echo $_POST['bike_model']; ?>'><BR /></TD>
-					</TR>
+				<TR class='timb-tbl-tre'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_make'>Make:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=64 id='bike_make' name='bike_make' value='<?php echo $_POST['bike_make']; ?>'><BR /></TD>
+				</TR>				
+				<TR class='timb-tbl-tro'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_model'>Model:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=64 id='bike_model' name='bike_model' value='<?php echo $_POST['bike_model']; ?>'><BR /></TD>
+				</TR>
 
-					<TR class='timb-tbl-tre'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_year'>Year:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=4 id='bike_year' name='bike_year' pattern="[0-9]" value='<?php echo $_POST['bike_year']; ?>'><BR /></TD>
-					</TR>				
-					<TR class='timb-tbl-tro'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_serial'>Serial Number:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='bike_serial' name='bike_serial' value='<?php echo $_POST['bike_serial']; ?>'>
-							<IMG class="timb-help-button" id="timb_hlpserial" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'bike-serial')" /><BR />
-						</TD>
-					</TR>
-					<TR class='timb-tbl-tre'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_color'>Color:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=32 id='bike_color' name='bike_color' value='<?php echo $_POST['bike_color']; ?>'><BR /></TD>
-					</TR>
-					<TR class='timb-tbl-tro'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_size'>Frame Size:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=15 id='bike_size' name='bike_size' value='<?php echo $_POST['bike_size']; ?>'><BR /></TD>
-					</TR>
+				<TR class='timb-tbl-tre'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_year'>Year:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=4 id='bike_year' name='bike_year' pattern="[0-9]" value='<?php echo $_POST['bike_year']; ?>'><BR /></TD>
+				</TR>				
+				<TR class='timb-tbl-tro'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_serial'>Serial Number:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=92 id='bike_serial' name='bike_serial' value='<?php echo $_POST['bike_serial']; ?>'>
+						<IMG class="timb-help-button" id="timb_hlpserial" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'bike-serial')" /><BR />
+					</TD>
+				</TR>
+				<TR class='timb-tbl-tre'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_color'>Color:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=32 id='bike_color' name='bike_color' value='<?php echo $_POST['bike_color']; ?>'><BR /></TD>
+				</TR>
+				<TR class='timb-tbl-tro'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_size'>Frame Size:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=15 id='bike_size' name='bike_size' value='<?php echo $_POST['bike_size']; ?>'><BR /></TD>
+				</TR>
 
-					<?php // TODO: Format date string. Also make optional fields obvious to user somehow (Font? Color? ) ?>
-					<TR class='timb-tbl-tre'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_from'>Purchased from (store):</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=32 id='bike_from' name='bike_from' value='<?php echo $_POST['bike_from']; ?>'>
-							<IMG class="timb-help-button" id="timb_hlpstore" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'bike_from')" /><BR />
-						</TD>
-					</TR>
-					<TR class='timb-tbl-tro'>
-						<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_date'>Purchase date:</LABEL></TD>
-						<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=15 id='bike_date' name='bike_date' value='<?php echo $_POST['bike_date']; ?>'>
-							<IMG class="timb-help-button" id="timb_hlpbuydate" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'bike_date')" /><BR />
-						</TD>
-					</TR>
-					
-					</TABLE>
-					<SCRIPT>
-						$(function() {
-							var set_makers = [
-							<?php
-								echo "''"; 
-								foreach ( get_maker_list() as $builder ) {
-									echo ", '$builder'";
-								}
-							?>
-		  					];
-		  					$("#bike_make").autocomplete({
-								source: set_makers
-		  					});	
-			  				
-						});
-					</SCRIPT>
-								
-				<DIV class="timb-reg-upload">Photos</DIV>
-				<DIV class=timb-bike-comp-in>Components</DIV>	
-				<DIV class="timb-reg-submit"><DIV class="timb-inter-button" id="timb-submit-reg" onClick="validate_and_submit()">Submit</DIV>			
+				<?php // TODO: Format date string. Also make optional fields obvious to user somehow (Font? Color? ) ?>
+				<TR class='timb-tbl-tre'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_from'>Purchased from (store):</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=32 id='bike_from' name='bike_from' value='<?php echo $_POST['bike_from']; ?>'>
+						<IMG class="timb-help-button" id="timb_hlpstore" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'bike_from')" /><BR />
+					</TD>
+				</TR>
+				<TR class='timb-tbl-tro'>
+					<TD class="timb-reg-label"><LABEL class='timb-tbl-label' for='bike_date'>Purchase date:</LABEL></TD>
+					<TD class="timb-reg-input"><INPUT class='timb-tbl-input' type='text' maxlength=15 id='bike_date' name='bike_date' value='<?php echo $_POST['bike_date']; ?>'>
+						<IMG class="timb-help-button" id="timb_hlpbuydate" width=15 height=15 src="./elements/help_button.png" onclick="showTimbHelp(event, 'bike_date')" /><BR />
+					</TD>
+				</TR>
+				
+				</TABLE>
+				<SCRIPT>
+					$(function() {
+						var set_makers = [
+						<?php
+							echo "''"; 
+							foreach ( get_maker_list() as $builder ) {
+								echo ", '$builder'";
+							}
+						?>
+	  					];
+	  					$("#bike_make").autocomplete({
+							source: set_makers
+	  					});	
+		  				
+					});
+				</SCRIPT>
+							
+			<DIV class="timb-reg-upload">Photos</DIV>
+			<DIV class=timb-bike-comp-in>Components</DIV>	
+			<DIV class="timb-reg-submit"><DIV class="timb-inter-button" id="timb-submit-reg" onClick="validate_and_submit()">Submit</DIV>			
 		</FORM>
 		<?php if ( ! get_config_key('suppress-reg-notice') || $_POST['hide-legal-notice'] ) { ?>
 		<!-- Legal Interstitial -->

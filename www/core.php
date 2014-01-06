@@ -1,6 +1,12 @@
 <?php
 
+include_once "./configs.php";
+
 date_default_timezone_set("UTC");
+set_error_handler("error_to_log");
+// Let's see if we've initialized
+config_is_present() || init_config_bootstrap();
+load_config_bootstrap();
 
 function write_ini_file($assoc_arr, $path, $has_sections=FALSE) {
 	$content = "";
@@ -44,6 +50,10 @@ function write_ini_file($assoc_arr, $path, $has_sections=FALSE) {
 	return true;
 }
 
+function error_to_log($errno, $errstr) {
+	error_log("Error: [$errno] $errstr");
+}
+
 function get_config_key( $key = NULL ) {
 	global $db_connection;
 	
@@ -67,8 +77,45 @@ function get_config_key( $key = NULL ) {
 		$data = $result->fetch_assoc();
 		$result->free();
 		return( $data['value'] );
+	} else {
+		$data['ERROR'] = $db_connection->error;
+		return( $data );
 	}	
 
+}
+
+function get_user_data( $email = NULL ) {
+	global $db_connection;
+
+	/*
+	if ( ! $email ) {
+		return;
+	}
+	*/
+	if ( ! ( isset( $db_connection ) ) ) {
+		get_db_connection();
+	}
+	if ( ! ( isset( $db_connection ) ) ) {
+		// TODO: Error handling
+		return;
+	}
+
+	$stmt =  $db_connection->stmt_init();
+	if ($stmt->prepare( "SELECT * FROM " . $config_bootstrap['database_name'] . ".users WHERE email=?" ) ) {
+		$stmt->bind_param( "s", $email );
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$data = $result->fetch_assoc();
+		$result->free();
+		return( $data );
+	} else {
+		$data['ERROR'] = $stmt->error;
+		return( $data );
+	}	
+}
+
+function insert_new_user_data( $data_set ) {
+	return( NULL );
 }
 
 // First time load of database schema
